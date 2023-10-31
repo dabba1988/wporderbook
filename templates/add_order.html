@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+<!-- Spezifische CSS/JS-Dateien für diese Seite -->
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="section">
+            <form class="col s12" method="post" action="/add_order">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="customer_name" type="text" class="validate" name="customer_name" required>
+                        <label for="customer_name">Kundenname</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="product" type="text" class="validate" name="product" required>
+                        <label for="product">Produkt</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="sales_channel" type="text" class="validate" name="sales_channel" required>
+                        <label for="sales_channel">Verkaufskanal</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="date" type="date" class="validate" name="date" required>
+                        <label for="date">Datum</label>
+                    </div>
+                </div>
+                <div class="section right">
+                <button class="btn waves-effect deep-purple darken-3 waves-light" type="submit" name="action">
+                    Speichern
+                    <i class="material-icons right">save</i>
+                </button>
+            </div>
+                    <div class="section left">
+                        <a href="/dashboard" class="waves-effect deep-purple darken-3 waves-light btn"><i class="material-icons right">arrow_back</i>Zurück</a>        
+                    </div>
+
+            </form>
+        </div>
+
+    </div>
+</body>
+
+{% endblock %}
+
+

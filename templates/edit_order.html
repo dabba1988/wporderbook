@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+<!-- Spezifische CSS/JS-Dateien für diese Seite -->
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="section">
+
+        <form action="" method="post">
+            <div class="input-field">
+                <input type="text" id="customer_name" name="customer_name" required value="{{ order.customer_name }}">
+                <label for="customer_name">Customer Name</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="product" name="product" required value="{{ order.product }}">
+                <label for="product">Product</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="sales_channel" name="sales_channel" required value="{{ order.sales_channel }}">
+                <label for="sales_channel">Sales Channel</label>
+            </div>
+            <div class="input-field">
+                <input type="text" class="datepicker" id="date" name="date" required value="{{ order.date.strftime('%Y-%m-%d') }}">
+                <label for="date">Date</label>
+            </div>
+
+                    
+
+        <div class="section left">
+            <button class="btn deep-purple darken-3" type="submit">
+                Speichern
+                <i class="material-icons right">save</i>
+            </button>
+        </div>
+        
+        
+
+        <div class="section right">
+                    <a href="/dashboard" class="waves-effect deep-purple darken-3 waves-light btn"><i class="material-icons right">arrow_back</i>Zurück</a>        
+        </div>
+
+        </form>
+        </div>
+
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems, {
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
+</body>
+
+{% endblock %}

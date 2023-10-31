@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+<!-- Spezifische CSS/JS-Dateien für diese Seite -->
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="section">
+
+        <form action="" method="post">
+            <div class="input-field">
+                <input type="text" id="item_product" name="item_product" required value="{{ item.product }}">
+                <label for="customer_name">Produkt</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="item_supplier" name="item_supplier" required value="{{ item.supplier }}">
+                <label for="product">Lieferant</label>
+            </div>
+
+                    
+
+        <div class="section left">
+            <button class="btn deep-purple darken-3" type="submit">
+                Speichern
+                <i class="material-icons right">save</i>
+            </button>
+        </div>
+        
+        
+
+        <div class="section right">
+                    <a href="/shopping_list" class="waves-effect deep-purple darken-3 waves-light btn"><i class="material-icons right">arrow_back</i>Zurück</a>        
+        </div>
+
+        </form>
+        </div>
+
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="white lighten-5">
+    <nav>
+        <div class="nav-wrapper  deep-purple darken-3">
+          <a href="#" class=" brand-logo center"><img style="width: 17%; padding-top:2%" class="responsive-img" src="/static/wp_logo.png"></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="waves-effect  deep-purple darken-3 waves-light "><a href="{{ url_for('dashboard') }}">Produktionsaufträge</a></li>
+            <li class="waves-effect  deep-purple darken-3 waves-light "><a href="{{ url_for('shopping_list') }}">Einkaufsliste</a></li>
+            <li><a href="{{ url_for('logout') }}">Abmelden</a></li>
+
+          </ul>
+          <a href="#" data-target="slide-out" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+
+        </div>
+
+      </nav>
+  
+    <!-- SideNav für mobile Geräte -->
+    <ul id="slide-out" class="sidenav nav-mobile">
+    </br>
+        <li><a href="{{ url_for('dashboard') }}">Auftragsbuch<i class="material-icons">home</i></a></li>
+        <li><a href="{{ url_for('shopping_list') }}">Einkaufsliste<i class="material-icons">shopping_cart</i></a></li>
+        <li><a href="{{ url_for('logout') }}">Logout<i class="material-icons">exit_to_app</i></a></li>
+    </ul>
+{% block body %}{% endblock %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>
+</html>

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+<!-- Spezifische CSS/JS-Dateien für diese Seite -->
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="section">
+            <a href="{{ url_for('add_order') }}" style="width: 100%;" class="waves-effect deep-purple darken-3 waves-light  btn"><i class="material-icons left">add</i>Produktionsauftrag hinzufügen</a>        
+        </div>
+        <div class="section">
+                <form class="col s12" method="post" action="/dashboard">
+                    <div class="input-field col s6">
+                        <input id="search" type="text" class="validate" name="search">
+                        <label for="search">Suche</label>
+                    </div>
+                    <div class="input-field col s6">
+                    </div>
+                </form>
+            
+
+        </div>
+        <div class="section">
+           <h5 class="center">Offene Aufträge</h2>
+
+        </div>
+
+        <div style="overflow-x:auto;">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>Kundenname</th>
+                        <th>Produkt</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.customer_name }}</td>
+                        <td>{{ order.product }}</td>
+                        <td class="right">
+                            <a href="{{ url_for('edit_order', order_id=order.id) }}" class="btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+                            <a href="{{ url_for('delete_order', order_id=order.id) }}" class="btn-small waves-effect waves-light red" onclick="return confirm('Bist du sicher?')"><i class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+   
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
